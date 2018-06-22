@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Perfil estudiantil</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/funciones.js"></script>
+	<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+	<script type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="is-loading">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<section id="main">
+			<header>
+				<span class="avatar"><img style="width: 120px; height: 120px" src="images/descarga.png" alt="" /></span>
+				<h1>Perfil estudiantil</h1>
+				<p>Formulario</p>
+			</header>
+
+			<hr />
+			<form method="post" action="#">
+				<ul class="actions">
+					<label for="IdImagen">Seleccione una foto desde:</label>
+					<li><a href="#" class="button" onclick="clearCache();getImage();">Camara</a></li>
+					<li><a href="#" class="button" onclick="clearCache();getImage(pictureSource.PHOTOLIBRARY);">Galeria</a></li>
+				</ul>
+				<div class="field">
+					<label for="IdNombre">Nombres:</label>
+					<input id="IdNombre" placeholder="Jimmie Arnold" name="nombre" type="text" class="" />
+					<label for="IdApellidos">Apellidos:</label>
+					<input id="IdApellidos" placeholder="Alvarado Palomino" name="apellidos" type="text" class="" />
+					<label for="IdRut">Rut:</label>
+					<input id="IdRut" placeholder="147558023" name="rut" type="text" class="" />
+					<label for="IdEdad">Edad:</label>
+					<input id="IdEdad" placeholder="25" name="edad" type="text" class="" />
+					<label for="IdSexo">Sexo:</label>
+					<select id="IdSexo" class="" name="sexo">
+			      <option value="Hombre">Hombre</option>
+			      <option value="Mujer">Mujer</option>
+					</select>
+					<label for="IdCorreo">Correo:</label>
+					<input id="IdCorreo" placeholder="usuario@ejemplo.com" name="correo" type="email" class="" />
+					<label for="IdFono">Fono:</label>
+					<input id="IdFono" placeholder="+56976437534" name="fono" type="text" class="" />
+					<label for="IdCarrera">Carrera:</label>
+					<input id="IdCarrera" placeholder="Ingenieria en Computacion" name="carrera" type="text" class="" />
+					<label for="IdSede">Sede:</label>
+				</div>
+
+
+
+				<ul class="actions">
+					<li><img style="display:none;width:120px;height:120px;" src="" alt="" id="largeImage" /></li>
+				</ul>
+
+
+				<ul class="actions">
+					<li><a href="#" class="button" onclick="enviaFoto();">Enviar Imagen</a></li>
+				</ul>
+
+				<!-- <ul class="actions">
+								<li><a href="#" class="button" onclick="WebSer();">WS</a></li>
+							</ul> -->
+
+				<ul class="actions">
+					<div class="field">
+						<input id="fono" placeholder="+56998765432" name="fono" type="text" class="" />
+					</div><br>
+					<li><a href="#" class="button" onclick="sendSMS();">Enviar SMS</a></li>
+				</ul>
+
+				<ul class="actions">
+					<li><a href="#" class="button" onclick="scanCode();">Leer QR</a></li>
+				</ul>
+
+				<ul class="actions">
+					<li><img style="display:none;width:120px;height:120px;" src="" alt="" id="preview" /></li>
+				</ul>
+
+
+
+
+
+
+			</form>
+			<hr />
+
+			<footer>
+
+			</footer>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="copyright">
+				<li>&copy; Manuel Lizama</li>
+				<li>Diseño: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+	<script>
+		if ('addEventListener' in window) {
+			window.addEventListener('load', function() {
+				document.body.className = document.body.className.replace(/\bis-loading\b/, '');
+			});
+			document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+		}
+	</script>
+
+</body>
+
+</html>
