@@ -227,12 +227,12 @@ function GetSource() {
 
 function sendSMS() {
   var fono = document.getElementById('fono').value;
-  var user = document.getElementById('user').value;
+  var rut = document.getElementById('rut').value;
   if (fono == '') {
     showAlert('Debe Ingresar el Fono!');
   } else {
 
-    var textoURl = "http://72.14.183.67/ws/qr/archivos_qr/" + user + "_qr.html";
+    var textoURl = "http://72.14.183.67/ws/s2/archivos_qr/" + rut + "_qr.html";
 
     if (SMS) {
       SMS.sendSMS(fono, textoURl, function() {
