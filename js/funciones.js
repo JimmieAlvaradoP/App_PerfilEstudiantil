@@ -4,14 +4,14 @@ var pictureSource; // picture source
 var destinationType; // sets the format of returned value
 document.addEventListener("deviceready", onDeviceReady, false);
 
-function showAlert(msj) {
+function showAlert(msj){
   navigator.notification.alert(msj, // message
       'UNAB', // title
       '' // buttonName);
 } //fin function mensaje.
 // PhoneGap is ready
 
-function onDeviceReady() {
+function onDeviceReady(){
   // Do cool things here...
   document.getElementById('largeImage').src = '';
   clearCache();
@@ -19,11 +19,11 @@ function onDeviceReady() {
   destinationType = navigator.camera.DestinationType;
 }
 
-function clearCache() {
+function clearCache(){
   navigator.camera.cleanup();
 }
 
-function getImage(source) {
+function getImage(source){
   // Retrieve image file location from specified source
   navigator.camera.getPicture(uploadPhoto, onFail, {
     quality: 50,
@@ -32,29 +32,29 @@ function getImage(source) {
   }); //destinationType: navigator.camera.DestinationType.FILE_URI
 }
 
-function onFail(message) {
+function onFail(message){
   clearCache();
   //alert('Captura Descartada.');
   showAlert('Captura Descartada.' + message);
 }
 
-function uploadPhoto(imageURI) {
+function uploadPhoto(imageURI){
   var largeImage = document.getElementById('largeImage');
   largeImage.style.display = 'block';
   largeImage.src = "data:image/jpeg;base64," + imageURI;
 }
 
-function prev(imageURI) {
+function prev(imageURI){
   var largeImage = document.getElementById('preview');
   largeImage.style.display = 'block';
   largeImage.src = imageURI;
 }
 
-function iabLoadError(event) {
+function iabLoadError(event){
   alert(event.type + ' - ' + event.message);
 }
 
-function muestraFotoActual(msg) {
+function muestraFotoActual(msg){
   var rut = document.getElementById('rut').value;
   var link = "http://72.14.183.67/ws/s2/archivos/" + rut + ".html"
 
@@ -68,7 +68,7 @@ function muestraFotoActual(msg) {
   }
 }
 
-function enviaFoto() {
+function enviaFormulario(){
   //var foto=document.getElementById('largeImage');
   var fotoSrc = document.getElementById('largeImage').src;
   var nombres = document.getElementById('nombres').value;
@@ -132,7 +132,7 @@ function enviaFoto() {
   }
 }
 
-function WebSer() {
+function WebSer(){
   var rut = document.getElementById('rut').value;
   //var foto=document.getElementById('largeImage');
   var qr = "http://72.14.183.67/ws/s2/archivos/" + rut + ".html"
@@ -179,7 +179,7 @@ function WebSer() {
   }
 }
 
-function GetSource() {
+function GetSource(){
   var rut = document.getElementById('rut').value;
   //var foto=document.getElementById('largeImage');
 
@@ -225,7 +225,7 @@ function GetSource() {
   }
 }
 
-function sendSMS() {
+function sendSMS(){
   var fono = document.getElementById('fono').value;
   var rut = document.getElementById('rut').value;
   if (fono == '') {
@@ -245,7 +245,7 @@ function sendSMS() {
   }
 }
 
-function scanCode() {
+function scanCode(){
   cordova.plugins.barcodeScanner.scan(function(result) {
     showAlert("We got a barcode\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
     if (result.text == '') {
