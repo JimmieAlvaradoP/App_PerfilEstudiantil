@@ -34,11 +34,9 @@ function getImage(source) {
 }
 
 function onFail(message) {
-
   clearCache();
   //alert('Captura Descartada.');
   showAlert('Captura Descartada.' + message);
-
 }
 
 function uploadPhoto(imageURI) {
@@ -58,11 +56,11 @@ function iabLoadError(event) {
 }
 
 function muestraFotoActual(msg) {
-  var user = document.getElementById('user').value;
-  var link = "http://72.14.183.67/ws/archivos/" + user + ".html"
+  var rut = document.getElementById('rut').value;
+  var link = "http://72.14.183.67/ws/s2/archivos/" + rut + ".html"
 
-  if (user == '') {
-    showAlert('Debe Ingresar nombre de usuario valido!');
+  if (rut == '') {
+    showAlert('Debe ingresar rut de usuario valido!');
   } else {
     var ref = window.open(link, '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) {
@@ -82,9 +80,8 @@ function enviaFoto() {
   var correo = document.getElementById('correo').value;
   var fono = document.getElementById('fono').value;
   var carrera = document.getElementById('carrera').value;
-  var sede = document.getElementById('sede').value;
 
-  if (user == '' || fotoSrc == '') {
+  if (fotoSrc == '' || nombres == '' || apellidos == '' || rut == '' || edad == '' || sexo == '' || correo == '' || fono == '' || carrera == '') {
     showAlert('Debe Ingresar los valores!');
   } else {
     //var fotoCod=encodeImageFileAsURL(foto);
@@ -184,11 +181,11 @@ function WebSer() {
 }
 
 function GetSource() {
-  var user = document.getElementById('user').value;
+  var rut = document.getElementById('rut').value;
   //var foto=document.getElementById('largeImage');
 
-  if (user == '') {
-    showAlert('Debe Ingresar usuario!');
+  if (rut == '') {
+    showAlert('Debe ingresar rut!');
   } else {
     //var fotoCod=encodeImageFileAsURL(foto);
 
@@ -202,7 +199,7 @@ function GetSource() {
       url: "http://72.14.183.67/ws/getSrc/getSrc.php",
       // datos, ej: $_POST['data']
       data: {
-        user: user
+        rut: rut
       },
       /*beforeSend: function(){
                 document.getElementById('divCargando').style.display="block";
