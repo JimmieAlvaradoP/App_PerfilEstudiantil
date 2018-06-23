@@ -30,7 +30,6 @@ function getImage(source) {
     destinationType: Camera.DestinationType.DATA_URL,
     sourceType: source
   }); //destinationType: navigator.camera.DestinationType.FILE_URI
-
 }
 
 function onFail(message) {
