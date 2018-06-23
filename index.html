@@ -15,7 +15,7 @@
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-
+	<script src="js/funciones.js"></script>
 	<script type="text/javascript" src="js/jquery.blockUI.js"></script>
 	<script type="text/javascript" charset="utf-8"></script>
 </head>
@@ -70,10 +70,6 @@
 					<li><a href="#" class="button" onclick="enviaFormulario();">Enviar Formulario</a></li>
 				</ul>
 
-				<!-- <ul class="actions">
-								<li><a href="#" class="button" onclick="WebSer();">WS</a></li>
-							</ul> -->
-
 				<ul class="actions">
 					<div class="field">
 						<input id="fono" placeholder="+56998765432" name="fono" type="text" class="" />
@@ -84,6 +80,8 @@
 				<ul class="actions">
 					<li><a href="#" class="button" onclick="scanCode();">Leer QR</a></li>
 				</ul>
+
+				<div id="map2"></div>
 
 				<ul class="actions">
 					<li><img style="display:none;width:120px;height:120px;" src="" alt="" id="preview" /></li>
@@ -117,8 +115,6 @@
 			document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 		}
 	</script>
-
-	<script src="js/funciones.js"></script>
 
 </body>
 

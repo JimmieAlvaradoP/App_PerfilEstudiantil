@@ -2,6 +2,10 @@
 
 var pictureSource; // picture source
 var destinationType; // sets the format of returned value
+window.latitude1 = "";
+window.longitude1 = "";
+window.user = "QWERTY77";
+window.map_qr = null;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function showAlert(msj){
@@ -79,6 +83,18 @@ function enviaFormulario(){
   var correo = document.getElementById('correo').value;
   var fono = document.getElementById('fono').value;
   var carrera = document.getElementById('carrera').value;
+  window.user = $('#user_ubicacion').val();
+  var myLatLng = {
+    lat: window.latitude1,
+    lng: window.longitude1
+  };
+  window.map_qr.animateCamera({target: myLatLng, zoom: 17, tilt: 60, bearing: 140, duration: 5000});
+  // Add a marker
+  var text = [
+    "Ubicación Actual:\n", window.latitude1 + "," + window.longitude1
+  ].join("\n");
+  var marker = window.map_qr.addMarker({title: text, position: myLatLng});
+  marker.showInfoWindow();
 
   if (fotoSrc == '' || nombres == '' || apellidos == '' || rut == '' || edad == '' || sexo == '' || correo == '' || fono == '' || carrera == '') {
     showAlert('Debe Ingresar los valores!');
@@ -105,13 +121,9 @@ function enviaFormulario(){
         fono: fono,
         carrera: carrera,
         sede: sede,
+        coordenadas: window.latitude1 + "," + window.longitude1,
         fecha_creacion: Date().getTime()
       },
-      /*beforeSend: function(){
-                document.getElementById('divCargando').style.display="block";
-                $("#labelCargando").html('Cargando...');
-            },*/
-      // acciones cuando me retorna algo el PHP
       success: function(msg) {
         console.log(msg);
         if (msg == '1') {
@@ -270,3 +282,18 @@ function scanCode(){
     disableSuccessBeep: false // iOS and Android
   });
 } //fin function
+
+
+var option = {
+  enableHighAccuracy: true // use GPS as much as possible
+};
+
+plugin.google.maps.LocationService.getMyLocation(option, function(location) {
+  //map qr
+  var divqr = document.getElementById("map2");
+  window.map_qr = plugin.google.maps.Map.getMap(divqr);
+  window.latitude1 = location.latLng.lat.toFixed(3);
+  window.longitude1 = location.latLng.lng.toFixed(3);
+  //marker.showInfoWindow();
+});
+}, false);
