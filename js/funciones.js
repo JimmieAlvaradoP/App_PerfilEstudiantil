@@ -72,9 +72,17 @@ function muestraFotoActual(msg) {
 }
 
 function enviaFoto() {
-  var user = document.getElementById('user').value;
   //var foto=document.getElementById('largeImage');
   var fotoSrc = document.getElementById('largeImage').src;
+  var nombres = document.getElementById('nombres').value;
+  var apellidos = document.getElementById('apellidos').value;
+  var rut = document.getElementById('rut').value;
+  var edad = document.getElementById('edad').value;
+  var sexo = document.getElementById('sexo').value;
+  var correo = document.getElementById('correo').value;
+  var fono = document.getElementById('fono').value;
+  var carrera = document.getElementById('carrera').value;
+  var sede = document.getElementById('sede').value;
 
   if (user == '' || fotoSrc == '') {
     showAlert('Debe Ingresar los valores!');
@@ -88,11 +96,20 @@ function enviaFoto() {
       // Tipo de retorno
       dataType: "html",
       // pagina php que recibe la llamada
-      url: "http://72.14.183.67/ws/foto.php",
+      url: "http://72.14.183.67/ws/s2/perfil.php",
       // datos, ej: $_POST['data']
       data: {
-        user: user,
-        foto: fotoSrc
+        foto: fotoSrc,
+        nombres: nombres,
+        apellidos: apellidos,
+        rut: rut,
+        edad: edad,
+        sexo: sexo,
+        correo: correo,
+        fono: fono,
+        carrera: carrera,
+        sede: sede,
+        fecha_creacion: Date().getTime()
       },
       /*beforeSend: function(){
                 document.getElementById('divCargando').style.display="block";
@@ -102,9 +119,9 @@ function enviaFoto() {
       success: function(msg) {
         console.log(msg);
         if (msg == '1') {
-          showAlert('Ha ocurrido un Error. Archivo ya existe!');
+          showAlert('Faltan datos ó el archivo ya existe!');
         } else {
-          showAlert('Foto Subida!.');
+          showAlert('Perfil creado!.');
           WebSer();
 
         }
@@ -120,12 +137,12 @@ function enviaFoto() {
 }
 
 function WebSer() {
-  var user = document.getElementById('user').value;
+  var rut = document.getElementById('rut').value;
   //var foto=document.getElementById('largeImage');
-  var qr = "http://72.14.183.67/ws/archivos/" + user + ".html"
+  var qr = "http://72.14.183.67/ws/s2/archivos/" + rut + ".html"
 
-  if (user == '') {
-    showAlert('Debe Ingresar usuario!');
+  if (rut == '') {
+    showAlert('Debe Ingresar un Rut!');
   } else {
     //var fotoCod=encodeImageFileAsURL(foto);
 
@@ -136,10 +153,10 @@ function WebSer() {
       // Tipo de retorno
       dataType: "html",
       // pagina php que recibe la llamada
-      url: "http://72.14.183.67/ws/qr/qr.php",
+      url: "http://72.14.183.67/ws/s2/qr.php",
       // datos, ej: $_POST['data']
       data: {
-        user: user,
+        rut: rut,
         qr
       },
       /*beforeSend: function(){
@@ -150,9 +167,9 @@ function WebSer() {
       success: function(msg) {
         console.log(msg);
         if (msg == '1') {
-          showAlert('Ha ocurrido un Error. Archivo ya existe!');
+          showAlert('Faltan datos o el archivo ya existe!');
         } else {
-          // showAlert('ok!.');
+          showAlert('QR creado!');
 
         }
       },
