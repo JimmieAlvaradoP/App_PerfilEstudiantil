@@ -31,11 +31,9 @@ function clearCache(){
 
 function getImage(source){
   // Retrieve image file location from specified source
-  navigator.camera.getPicture(uploadPhoto, onFail, {
-    quality: 50,
-    destinationType: Camera.DestinationType.DATA_URL,
-    sourceType: source
-  }); //destinationType: navigator.camera.DestinationType.FILE_URI
+  navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
+  destinationType: Camera.DestinationType.DATA_URL, sourceType: source});
+  //destinationType: navigator.camera.DestinationType.FILE_URI
 }
 
 function onFail(message){
