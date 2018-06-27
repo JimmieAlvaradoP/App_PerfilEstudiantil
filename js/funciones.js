@@ -9,10 +9,12 @@ window.map_qr = null;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function showAlert(msj){
-  navigator.notification.alert(msj, // message
-      'UNAB', // title
-      '' // buttonName);
-} //fin function mensaje.
+  navigator.notification.alert(
+    msj,  // message
+    'UNAB',   // title
+    ''    // buttonName
+  );
+}//fin function mensaje.
 // PhoneGap is ready
 
 function onDeviceReady(){
